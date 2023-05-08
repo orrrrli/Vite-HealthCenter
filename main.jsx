@@ -1,6 +1,12 @@
-import { createRoot } from 'react-dom/client'// Importamos del DOM el create root
-import { App } from './src/App.jsx'
-const root = createRoot(document.getElementById('app')) // Aqui traemos lo que queremos renderizar
-
-// eslint-disable-next-line react/react-in-jsx-scope
-root.render(<App/>)
+import * as React from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
+import * as ReactDOM from 'react-dom/client'
+import { Board } from './src/App'
+const rootElement = document.getElementById('app')
+ReactDOM.createRoot(rootElement).render(
+  <React.StrictMode>
+    <ChakraProvider>
+      <Board />
+    </ChakraProvider>
+  </React.StrictMode>
+)
