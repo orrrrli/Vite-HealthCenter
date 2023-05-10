@@ -13,7 +13,6 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
-
 export default function SimpleCard () {
   return (
     <Flex
@@ -95,7 +94,10 @@ function clickEnLogin () {
       console.log(response)
       return response.json()
     }).then(data => {
-      if (data != null) alert('Login Succesfully')
+      if (data != null) {
+        alert('Bienvenido')
+        window.location.href = '/routes/menu.html'
+      } else
       if (data == null) alert('Error de Credenciales')
     }).catch(_error => {
       alert('Error de Credenciales')

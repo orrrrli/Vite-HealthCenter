@@ -58,7 +58,7 @@ const items = [
     key: 'alipay'
   }
 ]
-const App = () => {
+const Example = () => {
   const [current, setCurrent] = useState('mail')
   const onClick = (e) => {
     console.log('click ', e)
@@ -66,4 +66,4 @@ const App = () => {
   }
   return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
 }
-export default App
+export default Example
