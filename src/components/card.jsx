@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { Center, Box, Stack, Text, Heading, Image, useColorModeValue, Container, SimpleGrid } from '@chakra-ui/react'
+import { Center, Box, Stack, Text, Heading, Image, useColorModeValue, SimpleGrid, Button } from '@chakra-ui/react'
 
 function ProductSimple (props) {
-  const { brand, name, price, image, salePrice } = props
+  const { brand, name, image, direction } = props
   return (
 <Center py={12}>
       <Box
@@ -20,29 +20,30 @@ function ProductSimple (props) {
           rounded={'lg'}
           mt={-12}
           pos={'relative'}
-          height={'230px'}
+          height={'250px'}
           _after={{
             transition: 'all .3s ease',
             content: '""',
             w: 'full',
             h: 'full',
             pos: 'absolute',
-            top: 5,
+            top: 2,
             left: 0,
             backgroundImage: `url(${image})`,
-            filter: 'blur(15px)',
+            filter: 'blur(40px)',
             zIndex: -1
           }}
           _groupHover={{
             _after: {
-              filter: 'blur(20px)'
+              filter: 'blur(10px)'
             }
           }}>
           <Image
             rounded={'lg'}
-            height={230}
+            marginTop={6}
+            height={285}
             width={282}
-            objectFit={'cover'}
+            objectFit={'contain'}
             src={image}
           />
         </Box>
@@ -54,12 +55,27 @@ function ProductSimple (props) {
             {name}
           </Heading>
           <Stack direction={'row'} align={'center'}>
-            <Text fontWeight={800} fontSize={'xl'}>
-              {salePrice}
-            </Text>
-            <Text textDecoration={'line-through'} color={'gray.600'}>
-              {price}
-            </Text>
+            <a href={direction}>
+              <Button
+                  /* flex={1} */
+                  {...props}
+                  px={4}
+                  fontSize={'sm'}
+                  rounded={'full'}
+                  bg={'blue.400'}
+                  color={'white'}
+                  boxShadow={
+                    '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                  }
+                  _hover={{
+                    bg: 'blue.500'
+                  }}
+                  _focus={{
+                    bg: 'blue.500'
+                  }}>
+                  Follow me
+                </Button>
+              </a>
           </Stack>
         </Stack>
       </Box>
@@ -70,25 +86,22 @@ function ProductSimple (props) {
 function ProductList () {
   const products = [
     {
-      brand: 'Nike',
-      name: 'Air Jordan 1 Mid',
-      price: '$ 110.00',
-      image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTzEoZmjki8qfm8VqoRx4G8t7fNGCHpd2n9A_T7Tt8YaCmwQL9OqCr2Ug3C0Q98QxWHojNlNGLiRAww1-zDyHXlt9orLvvBkkRLHWJMbRRJ&usqp=CAE',
-      salePrice: '$ 90.00'
+      brand: 'Medical Record',
+      name: 'Create a new record',
+      image: 'https://cdn-icons-png.flaticon.com/512/3209/3209020.png',
+      direction: 'medicalrecord'
     },
     {
-      brand: 'Adidas',
-      name: 'Adidas Response',
-      price: '$ 90.00',
-      image: 'https://img01.ztat.net/article/spp-media-p1/bf338944e1ab44f5b6e973da47833886/4e63d3a610454020aab4e5cc0a073500.jpg?imwidth=762&filter=packshot',
-      salePrice: '$ 70.00'
+      brand: 'Users',
+      name: 'Create a new user',
+      image: 'https://cdn-icons-png.flaticon.com/512/3631/3631626.png',
+      direction: 'user'
     },
     {
-      brand: 'Nike',
-      name: 'Nike Air Max 270',
-      price: '$ 150.00',
-      image: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/11228d96-14b8-4c3d-a74e-f2646c840999/calzado-blazer-low-77-jumbo-gRBtmC.png',
-      salePrice: '$ 120.00'
+      brand: 'Sheets',
+      name: 'Create a new sheet',
+      image: 'https://cdn-icons-png.flaticon.com/512/2421/2421213.png',
+      direction: 'sheet'
     }
   ]
   return (
