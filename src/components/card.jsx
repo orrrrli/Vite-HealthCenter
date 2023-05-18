@@ -86,16 +86,16 @@ function ProductSimple (props) {
 function ProductList () {
   const products = [
     {
-      brand: 'Medical Record',
-      name: 'Create a record',
-      image: 'https://cdn-icons-png.flaticon.com/512/3209/3209020.png',
-      direction: 'medicalrecord.html'
-    },
-    {
       brand: 'Users',
       name: 'Create a user',
       image: 'https://cdn-icons-png.flaticon.com/512/3631/3631626.png',
       direction: 'user.html'
+    },
+    {
+      brand: 'Medical Record',
+      name: 'Create a record',
+      image: 'https://cdn-icons-png.flaticon.com/512/3209/3209020.png',
+      direction: 'medicalrecord.html'
     },
     {
       brand: 'Sheets',
