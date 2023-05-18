@@ -73,7 +73,7 @@ function ProductSimple (props) {
                   _focus={{
                     bg: 'blue.500'
                   }}>
-                  Follow me
+                  New
                 </Button>
               </a>
           </Stack>
@@ -87,21 +87,21 @@ function ProductList () {
   const products = [
     {
       brand: 'Medical Record',
-      name: 'Create a new record',
+      name: 'Create a record',
       image: 'https://cdn-icons-png.flaticon.com/512/3209/3209020.png',
-      direction: 'medicalrecord'
+      direction: 'medicalrecord.html'
     },
     {
       brand: 'Users',
-      name: 'Create a new user',
+      name: 'Create a user',
       image: 'https://cdn-icons-png.flaticon.com/512/3631/3631626.png',
-      direction: 'user'
+      direction: 'user.html'
     },
     {
       brand: 'Sheets',
-      name: 'Create a new sheet',
+      name: 'Create a sheet',
       image: 'https://cdn-icons-png.flaticon.com/512/2421/2421213.png',
-      direction: 'sheet'
+      direction: 'sheet.html'
     }
   ]
   return (
