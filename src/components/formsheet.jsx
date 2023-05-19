@@ -11,7 +11,7 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
-export default function SignupCard () {
+export default function SheetForm () {
   return (
       <Flex
         minH={'100vh'}

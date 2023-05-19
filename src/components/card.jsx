@@ -3,7 +3,7 @@ import React from 'react'
 import { Center, Box, Stack, Text, Heading, Image, useColorModeValue, SimpleGrid, Button } from '@chakra-ui/react'
 
 function ProductSimple (props) {
-  const { brand, name, image, direction } = props
+  const { brand, name, image, direction, readlink } = props
   return (
 <Center py={12}>
       <Box
@@ -78,6 +78,28 @@ function ProductSimple (props) {
               </a>
           </Stack>
         </Stack>
+        <a href={readlink}>
+          <Button
+                    /* flex={1} */
+                    {...props}
+                    px={4}
+                    margin={4}
+                    fontSize={'sm'}
+                    rounded={'full'}
+                    bg={'green.400'}
+                    color={'white'}
+                    boxShadow={
+                      '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                    }
+                    _hover={{
+                      bg: 'green.500'
+                    }}
+                    _focus={{
+                      bg: 'blue.500'
+                    }}>
+                    Search
+            </Button>
+          </a>
       </Box>
     </Center>
   )
@@ -89,19 +111,23 @@ function ProductList () {
       brand: 'Users',
       name: 'Create a user',
       image: 'https://cdn-icons-png.flaticon.com/512/3631/3631626.png',
-      direction: 'user.html'
+      direction: 'user.html',
+      readlink: 'user-read.html'
     },
     {
       brand: 'Medical Record',
       name: 'Create a record',
       image: 'https://cdn-icons-png.flaticon.com/512/3209/3209020.png',
-      direction: 'medicalrecord.html'
+      direction: 'medicalrecord.html',
+      readlink: 'record-read.html'
+
     },
     {
       brand: 'Sheets',
       name: 'Create a sheet',
       image: 'https://cdn-icons-png.flaticon.com/512/2421/2421213.png',
-      direction: 'sheet.html'
+      direction: 'sheet.html',
+      readlink: 'sheet-read.html'
     }
   ]
   return (
