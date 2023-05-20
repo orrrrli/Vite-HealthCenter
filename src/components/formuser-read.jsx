@@ -29,7 +29,7 @@ export default function FormUserRead () {
           <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
             <Stack align={'center'}>
               <Heading fontSize={'4xl'} textAlign={'center'}>
-                Create a user
+                Look a user
               </Heading>
             </Stack>
             <Box
@@ -38,37 +38,39 @@ export default function FormUserRead () {
               boxShadow={'lg'}
               p={8}>
               <Stack spacing={5}>
-              <FormControl isRequired>
-                  <FormLabel>Name</FormLabel>
-                  <Input type="name" />
-                </FormControl>
-                <FormControl id="username" isRequired>
-                  <FormLabel>Username</FormLabel>
-                  <Input type="username" />
-                  <FormControl id="phone" isRequired>
-                  <FormLabel>Phone number</FormLabel>
-                  <Input type="phone" />
-                </FormControl>
-                </FormControl>
-                <FormControl id="email" isRequired>
-                  <FormLabel>Email address</FormLabel>
-                  <Input type="email" />
-                </FormControl>
-                <FormControl id="password" isRequired>
-                  <FormLabel>Password</FormLabel>
-                  <InputGroup>
-                    <Input type={showPassword ? 'text' : 'password'} />
-                    <InputRightElement h={'full'}>
-                      <Button
-                        variant={'ghost'}
-                        onClick={() =>
-                          setShowPassword((showPassword) => !showPassword)
-                        }>
-                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                      </Button>
-                    </InputRightElement>
-                  </InputGroup>
-                </FormControl>
+              <form>
+                <FormControl isRequired>
+                    <FormLabel>Name</FormLabel>
+                    <Input type="name" />
+                  </FormControl>
+                  <FormControl id="username" isRequired>
+                    <FormLabel>Username</FormLabel>
+                    <Input type="username" />
+                    <FormControl id="phone" isRequired>
+                    <FormLabel>Phone number</FormLabel>
+                    <Input type="phone" />
+                  </FormControl>
+                  </FormControl>
+                  <FormControl id="email" isRequired>
+                    <FormLabel>Email address</FormLabel>
+                    <Input type="email" />
+                  </FormControl>
+                  <FormControl id="password" isRequired>
+                    <FormLabel>Password</FormLabel>
+                    <InputGroup>
+                      <Input type={showPassword ? 'text' : 'password'} />
+                      <InputRightElement h={'full'}>
+                        <Button
+                          variant={'ghost'}
+                          onClick={() =>
+                            setShowPassword((showPassword) => !showPassword)
+                          }>
+                          {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                  </FormControl>
+                </form>
                 <Stack spacing={10} pt={2}>
                   <Button
                     loadingText="Submitting"
@@ -94,8 +96,6 @@ export default function FormUserRead () {
 }
 
 (function () {
-  // alert('Te ganaste un iphone');
-  // Llamar funcion fetch para obtener datos.
   fetch('https://localhost:44348/user/2',
     {
       method: 'GET',
