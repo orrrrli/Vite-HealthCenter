@@ -29,15 +29,23 @@ export default function FormUser () {
       {
         method: 'POST',
         mode: 'cors',
-        cache: 'default'
+        cache: 'default',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Response failed with status ${response.status}`)
         }
-        console.log(response)
         return response.json()
-      }).catch(error => {
+      })
+      .then(data => {
+        console.log(data)
+        // Do something with the response data
+      })
+      .catch(error => {
         console.log('Error:', error)
       })
   }
@@ -62,24 +70,24 @@ export default function FormUser () {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <FormControl isRequired>
                     <FormLabel>Name</FormLabel>
-                    <Input type="name" {...register('name')} />
+                    <Input type="name" {...register('Name')} />
                   </FormControl>
                   <FormControl id="username" isRequired>
                     <FormLabel>Username</FormLabel>
-                    <Input type="username" {...register('username')}/>
+                    <Input type="username" {...register('Username')}/>
                     <FormControl id="phone" isRequired>
                     <FormLabel>Phone number</FormLabel>
-                    <Input type="phone" {...register('phone')}/>
+                    <Input type="phone" {...register('Phone')}/>
                   </FormControl>
                   </FormControl>
                   <FormControl id="email" isRequired>
                     <FormLabel>Email address</FormLabel>
-                    <Input type="email" {...register('email')} />
+                    <Input type="email" {...register('Email')} />
                   </FormControl>
                   <FormControl id="password" isRequired>
                     <FormLabel>Password</FormLabel>
                     <InputGroup>
-                      <Input type={showPassword ? 'text' : 'password'} {...register('password')}/>
+                      <Input type={showPassword ? 'text' : 'password'} {...register('Password')}/>
                       <InputRightElement h={'full'}>
                         <Button
                           variant={'ghost'}

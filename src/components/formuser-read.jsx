@@ -4,22 +4,16 @@ import {
   Box,
   FormControl,
   FormLabel,
-  Input,
-  InputGroup,
-  InputRightElement,
   Stack,
   Button,
   Heading,
+  Input,
   Text,
   useColorModeValue,
   Link
 } from '@chakra-ui/react'
-import { useState } from 'react'
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
 export default function FormUserRead () {
-  const [showPassword, setShowPassword] = useState(false)
-
   return (
         <Flex
           minH={'100vh'}
@@ -39,48 +33,38 @@ export default function FormUserRead () {
               p={8}>
               <Stack spacing={5}>
               <form>
-                <FormControl isRequired>
+              <FormControl isRequired>
+                    <FormLabel>Search user by ID</FormLabel>
+                    <Input type="text" />
+                  </FormControl>
+                <FormControl >
                     <FormLabel>Name</FormLabel>
-                    <Input type="name" />
+                    <FormLabel id="Name" size={'lg'} color={'blackAlpha.500'}></FormLabel>
                   </FormControl>
-                  <FormControl id="username" isRequired>
+                  <FormControl >
                     <FormLabel>Username</FormLabel>
-                    <Input type="username" />
-                    <FormControl id="phone" isRequired>
-                    <FormLabel>Phone number</FormLabel>
-                    <Input type="phone" />
+                    <FormLabel id="UserName" size={'lg'} color={'blackAlpha.500'}></FormLabel>
                   </FormControl>
+                  <FormControl >
+                    <FormLabel>Email</FormLabel>
+                    <FormLabel id="Email" size={'lg'} color={'blackAlpha.500'}></FormLabel>
                   </FormControl>
-                  <FormControl id="email" isRequired>
-                    <FormLabel>Email address</FormLabel>
-                    <Input type="email" />
-                  </FormControl>
-                  <FormControl id="password" isRequired>
-                    <FormLabel>Password</FormLabel>
-                    <InputGroup>
-                      <Input type={showPassword ? 'text' : 'password'} />
-                      <InputRightElement h={'full'}>
-                        <Button
-                          variant={'ghost'}
-                          onClick={() =>
-                            setShowPassword((showPassword) => !showPassword)
-                          }>
-                          {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                        </Button>
-                      </InputRightElement>
-                    </InputGroup>
+                  <FormControl >
+                    <FormLabel>Phone Number</FormLabel>
+                    <FormLabel id="Phone" size={'lg'} color={'blackAlpha.500'}></FormLabel>
                   </FormControl>
                 </form>
                 <Stack spacing={10} pt={2}>
                   <Button
                     loadingText="Submitting"
                     size="lg"
+                    type='submit'
                     bg={'blue.400'}
                     color={'white'}
                     _hover={{
                       bg: 'blue.500'
                     }}>
-                    Create
+                    Search
                   </Button>
                 </Stack>
                 <Stack pt={6}>
@@ -110,7 +94,10 @@ export default function FormUserRead () {
       return response.json()
     }).then(data => {
       console.log(data)
-      document.getElementById('name').innerHTML = data.Name
+      document.getElementById('Name').innerHTML = data.Name
+      document.getElementById('UserName').innerHTML = data.UserName
+      document.getElementById('Email').innerHTML = data.Email
+      document.getElementById('Phone').innerHTML = data.Phone
     }).catch(error => {
       console.log('Error:', error)
     })
