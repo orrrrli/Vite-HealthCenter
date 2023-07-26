@@ -1,4 +1,4 @@
-## Readme.txt - Health Center Project
+## Health Center Project
 
 ### Introduction
 
